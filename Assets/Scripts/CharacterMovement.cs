@@ -27,14 +27,24 @@ public class CharacterMovement : MonoBehaviour
 
         MoveCharacter(xInput, zInput);
         ApplyGravity();
+        
     }
 
     void MoveCharacter(float xInput, float zInput){
+        // Main cam reference
         Transform camTransform = myCam.transform;
-        camTransform.eulerAngles = new Vector3(0, camTransform.eulerAngles.y, camTransform.eulerAngles.z);
+        camTransform.eulerAngles = new Vector3(0, camTransform.eulerAngles.y, camTransform.eulerAngles.z); // set x back to horizontal level
 
+        // Character moving direction, according to camera's orientation
         Vector3 moveDir = camTransform.right * xInput + camTransform.forward * zInput;
         controller.Move(moveDir * speed * Time.deltaTime);
+
+        // Character orientation
+        if (moveDir.normalized != Vector3.zero) {
+            Debug.Log("Moving");
+            Quaternion q = Quaternion.LookRotation(moveDir, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.05f);
+        }
     }
 
     void ApplyGravity(){
@@ -45,7 +55,6 @@ public class CharacterMovement : MonoBehaviour
 
     void GroundedCheck(){
         isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, groundMask);
-        Debug.Log(isGrounded);
         if (isGrounded && velocity.y < 0){
             velocity.y = -2f; // constantly forcing the player falls
         }

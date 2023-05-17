@@ -15,13 +15,6 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
-        // transform: self's (camera) transform 
-        // x = transform.eulerAngles.x;
-        // y = transform.eulerAngles.y;
-        // Init camera
-        x = 270;
-        y = 20;
     }
 
     private void LateUpdate()
@@ -31,9 +24,7 @@ public class CameraController : MonoBehaviour
         y = Mathf.Clamp(y, 0f, 50f);
 
         Quaternion rotation = Quaternion.Euler(y, x, 0);
-        Vector3 position = rotation * new Vector3(0, height, -distance) + target.position;
-
         transform.rotation = rotation;
-        transform.position = position;
+        transform.position = rotation * new Vector3(0, height, -distance) + target.position;
     }
 }

@@ -8876,7 +8876,6 @@ GameObject:
   - component: {fileID: 1468806460}
   - component: {fileID: 1468806461}
   - component: {fileID: 1468806463}
-  - component: {fileID: 1468806464}
   - component: {fileID: 1468806462}
   m_Layer: 0
   m_Name: Adam
@@ -13532,7 +13531,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 02c828f75e270754db6b763574d05654, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -14401,7 +14400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 422288013}
-  sensitivity: 5
+  sensitivity: 3
   distance: 4
   height: 1
 --- !u!1 &1046217183
@@ -14629,7 +14628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1468806462}
-  speed: 10
+  speed: 3
   jumpHeight: 3
   gravity: -9.81
   groundChecker: {fileID: 516531874}
@@ -14637,20 +14636,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &1468806464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422315693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557cdf66359684a429b3987f48546186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  myCam: {fileID: 963194228}
+  myCam: {fileID: 963194227}
 --- !u!1 &1989773589
 GameObject:
   m_ObjectHideFlags: 0
@@ -15001,7 +14987,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27004
+  m_Name: pb_Mesh27030
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
